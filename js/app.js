@@ -12,7 +12,7 @@ const messageEl = document.querySelector('message')
 init()
 
 function init() {
-  board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
   turn = 1
   winner = false
   tie = false
@@ -26,7 +26,10 @@ function render() {
 function updateBoard() {
   board.forEach((boardVal, idx) =>{
     if (boardVal === 1) {
-      cellEls[idx]
+      cellEls[idx].color = 'blue'
+    }
+    if (boardVal === -1) {
+
     }
   })
 }
