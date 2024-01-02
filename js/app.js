@@ -1,8 +1,67 @@
+/*-------------------Constants-----------------*/
+const winningCombos = [
+  // Vertical wins
+  [[0, 0], [1, 0], [2, 0], [3, 0]],
+  [[0, 1], [1, 1], [2, 1], [3, 1]],
+  [[0, 2], [1, 2], [2, 2], [3, 2]],
+  [[0, 3], [1, 3], [2, 3], [3, 3]],
+  [[1, 0], [2, 0], [3, 0], [4, 0]],
+  [[1, 1], [2, 1], [3, 1], [4, 1]],
+  [[1, 2], [2, 2], [3, 2], [4, 2]],
+  [[1, 3], [2, 3], [3, 3], [4, 3]],
+  [[2, 0], [3, 0], [4, 0], [5, 0]],
+  [[2, 1], [3, 1], [4, 1], [5, 1]],
+  [[2, 2], [3, 2], [4, 2], [5, 2]],
+  [[2, 3], [3, 3], [4, 3], [5, 3]],
+  [[3, 0], [4, 0], [5, 0], [6, 0]],
+  [[3, 1], [4, 1], [5, 1], [6, 1]],
+  [[3, 2], [4, 2], [5, 2], [6, 2]],
+  [[3, 3], [4, 3], [5, 3], [6, 3]],
+
+  // Horizontal wins
+  [[0, 0], [0, 1], [0, 2], [0, 3]],
+  [[1, 0], [1, 1], [1, 2], [1, 3]],
+  [[2, 0], [2, 1], [2, 2], [2, 3]],
+  [[3, 0], [3, 1], [3, 2], [3, 3]],
+  [[4, 0], [4, 1], [4, 2], [4, 3]],
+  [[5, 0], [5, 1], [5, 2], [5, 3]],
+  [[6, 0], [6, 1], [6, 2], [6, 3]],
+
+  // Diagonal wins (ascending)
+  [[0, 0], [1, 1], [2, 2], [3, 3]],
+  [[1, 0], [2, 1], [3, 2], [4, 3]],
+  [[2, 0], [3, 1], [4, 2], [5, 3]],
+  [[3, 0], [4, 1], [5, 2], [6, 3]],
+  [[0, 1], [1, 2], [2, 3], [3, 4]],
+  [[1, 1], [2, 2], [3, 3], [4, 4]],
+  [[2, 1], [3, 2], [4, 3], [5, 4]],
+  [[3, 1], [4, 2], [5, 3], [6, 4]],
+  [[0, 2], [1, 3], [2, 4], [3, 5]],
+  [[1, 2], [2, 3], [3, 4], [4, 5]],
+  [[2, 2], [3, 3], [4, 4], [5, 5]],
+  [[3, 2], [4, 3], [5, 4], [6, 5]],
+
+  // Diagonal wins (descending)
+  [[0, 3], [1, 2], [2, 1], [3, 0]],
+  [[1, 3], [2, 2], [3, 1], [4, 0]],
+  [[2, 3], [3, 2], [4, 1], [5, 0]],
+  [[3, 3], [4, 2], [5, 1], [6, 0]],
+  [[0, 4], [1, 3], [2, 2], [3, 1]],
+  [[1, 4], [2, 3], [3, 2], [4, 1]],
+  [[2, 4], [3, 3], [4, 2], [5, 1]],
+  [[3, 4], [4, 3], [5, 2], [6, 1]],
+  [[0, 5], [1, 4], [2, 3], [3, 2]],
+  [[1, 5], [2, 4], [3, 3], [4, 2]],
+  [[2, 5], [3, 4], [4, 3], [5, 2]],
+  [[3, 5], [4, 4], [5, 3], [6, 2]],
+]
+
+
 /*---------Variables--------*/
 let board, turn, winner, tie
 /*---------Cached Element References------*/
 const cellEls = document.querySelectorAll('.cell')
-const messageEl = document.querySelector('message')
+const messageEl = document.querySelector('#message')
 
 /*---------Event Listeners--------*/
 
@@ -20,7 +79,8 @@ board = [null, null, null, null, null, null, null, null, null, null, null, null,
 }
 
 function render() {
-  
+  updateBoard()
+  updateMessage()
 }
 
 function updateBoard() {
@@ -29,20 +89,33 @@ function updateBoard() {
       cellEls[idx].color = 'blue'
     }
     if (boardVal === -1) {
-
+      cellEls[idx]. color = 'red'
+    }
+    if (boardVal === null) {
+      cellEls[idx].color = ' '
     }
   })
+}
+
+function updateMessage() {
+  if (!winner && !tie) {
+    messageEl.textContent = `It's ${turn === 1 ? 'red' : 'blue'}'s turn!`
+  } else if (!winner && tie) {
+    messageEl.textContent = "Draw"
+  } else {
+    messageEl.textContent = `Player ${winner === 1 ? 'red' : 'blue'} wins!`
+  }
 }
 
 // PseudoCode for Connect Four Unit One Project 
 
 // Initialize the game board:
 // Create a 6x7 grid (6 rows, 7 columns)
-// Set all grid cells to empty (e.g., 0 represents an empty cell)
+// Set all grid cells to empty (e.g., null represents an empty cell)
 
 // Display the game board:
 // Iterate through each row and column
-// Display the content of each cell (e.g., "red" for player 1, "blue" for player 2, and "." for an empty cell)
+// Display the content of each cell (e.g., "red" for player 1, "blue" for player 2, and null for an empty cell)
 
 // Check for a winning condition:
 // Iterate through each row, column, and diagonal
