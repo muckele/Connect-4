@@ -5,12 +5,15 @@ const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.querySelector('message')
 
 /*---------Event Listeners--------*/
+document.addEventListener("DOMContentLoaded", function () {
+  const gridContainer = document.getElementById("connect-four");
+
 
 /*---------Functions----------*/
 init()
 
 function init() {
-  board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null null, null, null, null, null, null]
+  board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
   console.log(board.length)
 }
 
