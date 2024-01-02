@@ -1,12 +1,11 @@
 /*---------Variables--------*/
 let board, turn, winner, tie
 /*---------Cached Element References------*/
-const squareEls = document.querySelectorAll('.sqr')
+const cellEls = document.querySelectorAll('.cell')
 const messageEl = document.querySelector('message')
 
 /*---------Event Listeners--------*/
-document.addEventListener("DOMContentLoaded", function () {
-  const gridContainer = document.getElementById("connect-four");
+
 
 
 /*---------Functions----------*/
@@ -14,7 +13,22 @@ init()
 
 function init() {
   board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
-  console.log(board.length)
+  turn = 1
+  winner = false
+  tie = false
+  render()
+}
+
+function render() {
+  
+}
+
+function updateBoard() {
+  board.forEach((boardVal, idx) =>{
+    if (boardVal === 1) {
+      cellEls[idx]
+    }
+  })
 }
 
 // PseudoCode for Connect Four Unit One Project 
@@ -25,7 +39,7 @@ function init() {
 
 // Display the game board:
 // Iterate through each row and column
-// Display the content of each cell (e.g., "O" for player 1, "X" for player 2, and "." for an empty cell)
+// Display the content of each cell (e.g., "red" for player 1, "blue" for player 2, and "." for an empty cell)
 
 // Check for a winning condition:
 // Iterate through each row, column, and diagonal

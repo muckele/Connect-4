@@ -6,7 +6,7 @@
   height: 660px;
   margin: 0 auto;
   justify-content: center;
-  background-color: black;
+  background-color: blue;
 }
 
 
@@ -22,5 +22,13 @@
   background-color: #00008B
 }
 
+#reset-button {
+  display: flex;
+  justify-content: center;
+}
 
+section.title {
+  display: flex;
+  justify-items: center;
+}
 
