@@ -55,16 +55,22 @@ const winningCombos = [
   [[2, 5], [3, 4], [4, 3], [5, 2]],
   [[3, 5], [4, 4], [5, 3], [6, 2]],
 ]
-
+console.log(winningCombos.length)
 
 /*---------Variables--------*/
 let board, turn, winner, tie
 /*---------Cached Element References------*/
 const cellEls = document.querySelectorAll('.cell')
 const messageEl = document.querySelector('#message')
+const resetBtn = document.getElementById('reset-button')
 
 /*---------Event Listeners--------*/
-
+cellEls.forEach(function (cellEl, idx) {
+  cellEl.addEventListener('click', function () {
+    handleClick(idx);
+  })
+})
+resetBtn.addEventListener('click', init);
 
 
 /*---------Functions----------*/
@@ -84,15 +90,13 @@ function render() {
 }
 
 function updateBoard() {
-  board.forEach((boardVal, idx) =>{
+  board.forEach((boardVal, idx) => {
     if (boardVal === 1) {
-      cellEls[idx].color = 'blue'
-    }
-    if (boardVal === -1) {
-      cellEls[idx]. color = 'red'
-    }
-    if (boardVal === null) {
-      cellEls[idx].color = ' '
+      cellEls[idx].style.backgroundColor = 'blue'
+    } if (boardVal === -1) {
+      cellEls[idx].style.backgroundColor = 'red'
+    } if (boardVal === null) {
+      cellEls[idx].style.backgroundColor = ''
     }
   })
 }
@@ -101,9 +105,19 @@ function updateMessage() {
   if (!winner && !tie) {
     messageEl.textContent = `It's ${turn === 1 ? 'red' : 'blue'}'s turn!`
   } else if (!winner && tie) {
-    messageEl.textContent = "Draw"
+    messageEl.textContent = "Draw, play again!"
   } else {
     messageEl.textContent = `Player ${winner === 1 ? 'red' : 'blue'} wins!`
+  }
+}
+
+function handleClick(idx) {
+  if (board[idx] === null && !winner && !tie) {
+    board[idx] = turn
+    checkForWinner(turn)
+    checkForTie()
+    turn = turn === 1 ? -1 : 1
+    render()
   }
 }
 
