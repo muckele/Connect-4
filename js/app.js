@@ -103,36 +103,76 @@ function updateBoard() {
 
 function updateMessage() {
   if (!winner && !tie) {
-    messageEl.textContent = `It's ${turn === 1 ? 'red' : 'blue'}'s turn!`
+    messageEl.textContent = `It's ${turn === 1 ? 'blue' : 'red'}'s turn!`
   } else if (!winner && tie) {
     messageEl.textContent = "Draw, play again!"
   } else {
-    messageEl.textContent = `Player ${winner === 1 ? 'red' : 'blue'} wins!`
+    messageEl.textContent = `Player ${winner === 1 ? 'blue' : 'red'} wins!`
   }
 }
 
 function handleClick(idx) {
   if (board[idx] === null && !winner && !tie) {
-    board[idx] = turn
-    checkForWinner(turn)
-    checkForTie()
-    turn = turn === 1 ? -1 : 1
+    let row = findLowestEmptyRow(idx)
+    if (row !== -1) {
+      board[row * 6 + idx % 6] = turn
+      checkForWinner(turn)
+      checkForTie()
+      turn = turn === 1 ? -1 : 1
+      render()
+    }
+  }
+}
+
+function findLowestEmptyRow(idx) {
+  for (let row = 5; row >= 0; row--) {
+    if (board[row * 6 + idx % 6] === null) {
+      return row
+    }
+  }
+  return -1
+  console.log(idx)
+}
+
+
+function checkForWinner(player) {
+  for (let combo of winningCombos) {
+    let count = 0
+    for (let position of combo) {
+      if (board[position[0] + position[1] * 7] === player) {
+        count++
+      }
+    } if (count === 4) {
+      winner = player
+      render()
+      return
+    }
+  }
+}
+
+function checkForTie() {
+  if (!board.includes(null) && !winner) {
+    tie = true
     render()
   }
 }
 
+
+
+
+
 // PseudoCode for Connect Four Unit One Project 
 
 // Initialize the game board:
-// Create a 6x7 grid (6 rows, 7 columns)
+// Create a 6x7 grid (6 rows, 7 rows)
 // Set all grid cells to empty (e.g., null represents an empty cell)
 
 // Display the game board:
-// Iterate through each row and column
+// Iterate through each row and row
 // Display the content of each cell (e.g., "red" for player 1, "blue" for player 2, and null for an empty cell)
 
 // Check for a winning condition:
-// Iterate through each row, column, and diagonal
+// Iterate through each row, row, and diagonal
 // Check if there are four consecutive discs of the same player
 // If yes, declare the player as the winner
 
@@ -141,10 +181,10 @@ function handleClick(idx) {
 
 // Player move:
 // Repeat until a winning condition or tie occurs:
-// Get the current player's input for the column to drop a disc
-// Check if the selected column is not full
-// If yes, drop the player's disc in the lowest empty cell in that column
-// If no, ask the player to choose another column
+// Get the current player's input for the row to drop a disc
+// Check if the selected row is not full
+// If yes, drop the player's disc in the lowest empty cell in that row
+// If no, ask the player to choose another row
 
 // Switch player:
 // Toggle between players after each move
