@@ -125,13 +125,12 @@ function handleClick(idx) {
 }
 
 function findLowestEmptyRow(idx) {
-  for (let row = 5; row >= 0; row--) {
+  for (let row = 6; row > 0; row--) {
     if (board[row * 6 + idx % 6] === null) {
       return row
     }
   }
   return -1
-  console.log(idx)
 }
 
 
