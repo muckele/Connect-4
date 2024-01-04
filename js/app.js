@@ -63,6 +63,9 @@ let board, turn, winner, tie
 const cellEls = document.querySelectorAll('.cell')
 const messageEl = document.querySelector('#message')
 const resetBtn = document.getElementById('reset-button')
+const lightDarkBtn = document.querySelector("#light-dark-button")
+const body = document.querySelector("body")
+
 
 /*---------Event Listeners--------*/
 cellEls.forEach(function (cellEl, idx) {
@@ -71,10 +74,25 @@ cellEls.forEach(function (cellEl, idx) {
   })
 })
 resetBtn.addEventListener('click', init);
+lightDarkBtn.addEventListener('click', toggleLightDark)
 
 
 /*---------Functions----------*/
 init()
+checkDarkPref()
+
+function toggleLightDark() {
+  body.className = body.className === "dark" ? "" : "dark"
+}
+
+function checkDarkPref() {
+  if (
+    window.matchMedia("(prefers-color-scheme:dark)").matches &&
+    body.className !== "dark"
+  ) {
+    toggleLightDark()
+  }
+}
 
 function init() {
 board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
@@ -94,7 +112,7 @@ function updateBoard() {
     if (boardVal === 1) {
       cellEls[idx].style.backgroundColor = 'blue'
     } if (boardVal === -1) {
-      cellEls[idx].style.backgroundColor = 'red'
+      cellEls[idx].style.backgroundColor = 'yellow'
     } if (boardVal === null) {
       cellEls[idx].style.backgroundColor = ''
     }
@@ -103,11 +121,11 @@ function updateBoard() {
 
 function updateMessage() {
   if (!winner && !tie) {
-    messageEl.textContent = `It's ${turn === 1 ? 'blue' : 'red'}'s turn!`
+    messageEl.textContent = `It's ${turn === 1 ? 'blue' : 'yellow'}'s turn!`
   } else if (!winner && tie) {
     messageEl.textContent = "Draw, play again!"
   } else {
-    messageEl.textContent = `Player ${winner === 1 ? 'blue' : 'red'} wins!`
+    messageEl.textContent = `Player ${winner === 1 ? 'blue' : 'yellow'} wins!`
   }
 }
 
@@ -168,7 +186,7 @@ function checkForTie() {
 
 // Display the game board:
 // Iterate through each row and row
-// Display the content of each cell (e.g., "red" for player 1, "blue" for player 2, and null for an empty cell)
+// Display the content of each cell (e.g., "yellow" for player 1, "blue" for player 2, and null for an empty cell)
 
 // Check for a winning condition:
 // Iterate through each row, row, and diagonal
