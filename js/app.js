@@ -160,16 +160,18 @@ function checkForWinner(player) {
   for (let combo of winningCombos) {
     let count = 0
     for (let position of combo) {
-      if (board[position[0] + position[1] * 7] === player) {
+      if (board[position] === player) {
         count++
       }
-    } if (count === 4) {
+    }
+    if (count === 4) {
       winner = player
       render()
       return
     }
   }
 }
+
 
 function checkForTie() {
   if (!board.includes(null) && !winner) {
