@@ -72,6 +72,9 @@ body.dark {
 }
 
 #reset-button {
-  text-align: center;
+  margin-top 50px;
+  border-radius: 7px;
+  font-size: 2vmin;
+  padding: 8px 12px;
 }
 
