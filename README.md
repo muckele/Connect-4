@@ -24,7 +24,7 @@ Connect Four, a game created by Howard Wexler, was first sold under the Connect 
 ### **Ice Box 🧊**
 
 - [x] Work on CSS Styling 
-- [ ] Dark Mode
+- [x] Dark Mode
 - [ ] Confetti
 - [ ] Sound
 - [ ] Hover Column Mode
