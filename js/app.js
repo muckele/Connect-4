@@ -47,10 +47,10 @@ const body = document.querySelector("body")
 /*---------Event Listeners--------*/
 cellEls.forEach(function (cellEl, idx) {
   cellEl.addEventListener('click', function () {
-    handleClick(idx);
+    handleClick(idx)
   })
 })
-resetBtn.addEventListener('click', init);
+resetBtn.addEventListener('click', init)
 lightDarkBtn.addEventListener('click', toggleLightDark)
 
 
@@ -87,7 +87,7 @@ function render() {
 function updateBoard() {
   board.forEach((boardVal, idx) => {
     if (boardVal === 1) {
-      cellEls[idx].style.backgroundColor = 'blue'
+      cellEls[idx].style.backgroundColor = 'red'
     } if (boardVal === -1) {
       cellEls[idx].style.backgroundColor = 'yellow'
     } if (boardVal === null) {
@@ -98,19 +98,20 @@ function updateBoard() {
 
 function updateMessage() {
   if (!winner && !tie) {
-    messageEl.textContent = `It's ${turn === 1 ? 'blue' : 'yellow'}'s turn!`
+    messageEl.textContent = `It's ${turn === 1 ? 'red' : 'yellow'}'s turn!`
   } else if (!winner && tie) {
     messageEl.textContent = "Draw, play again!"
   } else {
-    messageEl.textContent = `Player ${winner === 1 ? 'blue' : 'yellow'} wins!`
+    messageEl.textContent = `Player ${winner === 1 ? 'red' : 'yellow'} wins!`
   }
 }
 
 function handleClick(idx) {
-  if (board[idx] === null && !winner && !tie) {
-    let row = findLowestEmptyRow(idx)
+  if (!winner && !tie) {
+    const column = idx % 7
+    let row = findLowestEmptyRow(column)
     if (row !== -1) {
-      board[row * 6 + idx % 6] = turn
+      board[row * 7 + column] = turn
       checkForWinner(turn)
       checkForTie()
       turn = turn === 1 ? -1 : 1
@@ -119,42 +120,14 @@ function handleClick(idx) {
   }
 }
 
-function findLowestEmptyRow(idx) {
+function findLowestEmptyRow(column) {
   for (let row = 6; row > 0; row--) {
-    if (board[row * 6 + idx % 6] === null) {
+    if (board[row * 7 + column] === null) {
       return row
     }
   }
   return -1
 }
-
-// function checkForWinningCombos() {
-//   for (let combo of winningCombos) {
-//     let blueCount = 0
-//     let yellowCount = 0
-
-//     for (let position of combo) {
-//       const [row, col] = position
-//       const cellValue = board[row * 7 + col]
-
-//       if (cellValue === 1) {
-//         blueCount++
-//       } else if (cellValue === -1) {
-//         yellowCount++
-//       }
-
-//       if (blueCount === 4) {
-//         return 1;
-//       } else if (yellowCount === 4) {
-//         return -1;
-//       }
-//     }
-//   }
-//   return 0;
-// }
-
-
-
 
 function checkForWinner(player) {
   for (let combo of winningCombos) {
@@ -171,7 +144,6 @@ function checkForWinner(player) {
     }
   }
 }
-
 
 function checkForTie() {
   if (!board.includes(null) && !winner) {
@@ -192,7 +164,7 @@ function checkForTie() {
 
 // Display the game board:
 // Iterate through each row and row
-// Display the content of each cell (e.g., "yellow" for player 1, "blue" for player 2, and null for an empty cell)
+// Display the content of each cell (e.g., "red" for player 1, "yellow" for player 2, and null for an empty cell)
 
 // Check for a winning condition:
 // Iterate through each row, row, and diagonal

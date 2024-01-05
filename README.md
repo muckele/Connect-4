@@ -1,6 +1,6 @@
 # **Connect-4**
 
-//enter screenshot of game here 
+//enter screenshot of game here// 
 
 ### **General Info**
 
@@ -19,6 +19,8 @@ Connect Four, a game created by Howard Wexler, was first sold under the Connect 
 ### **Credits 🙌**
 
 * [MDN Web Docs](https://developer.mozilla.org/en-US/)
+* [Connect Four History](https://en.wikipedia.org/wiki/Connect_Four)
+* [Coolers](https://coolors.co/)
 
 
 ### **Ice Box 🧊**
