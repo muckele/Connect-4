@@ -22,6 +22,7 @@ Connect Four, a game created by Howard Wexler, was first sold under the Connect 
 * [Connect Four History](https://en.wikipedia.org/wiki/Connect_Four)
 * [Coolers](https://coolors.co/)
 * [CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [Favicon Creator](https://favicon.io/)
 
 
 ### **Ice Box 🧊**
