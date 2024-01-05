@@ -1,6 +1,6 @@
 # **Connect-4**
 
-//enter screenshot of game here// 
+![alt text](/assets/Connect-Four.jpg)
 
 ### **General Info**
 
@@ -27,8 +27,9 @@ Connect Four, a game created by Howard Wexler, was first sold under the Connect 
 
 ### **Ice Box 🧊**
 
-- [x] Work on CSS Styling 
+- [x] CSS Styling 
 - [x] Dark Mode
-- [ ] Confetti
-- [ ] Sound
-- [ ] Hover Column Mode
+- [ ] Confetti or animations when players wins
+- [ ] Sound effects
+- [x] Hover Mode
+- [ ] Seinfeld Themed Game
