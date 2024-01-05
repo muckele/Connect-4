@@ -1,6 +1,6 @@
 # **Connect-4**
 
-![alt text](/assets/Connect-Four.jpg)
+![alt text](/assets/images/Connect-Four.jpg)
 
 ### **General Info**
 
