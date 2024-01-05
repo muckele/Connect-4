@@ -15,6 +15,7 @@
   margin-top: 20px;
   text-align: center;
   color: white;
+  font-weight: 150;
 }
 
 .cell {
@@ -41,13 +42,14 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   flex-direction: column;
   margin: 0;
+  font-family: 'Rubik Doodle Triangles', system-ui;
 }
 
 h1 {
   background-color: var(--header-bg);
   font-family: var(--serif);
-  font-size: 55px;
-  font-weight: 800;
+  font-size: 95px;
+  font-weight: 150;
   margin: 0 0 12px 0;
   padding: 12px;
   text-align: center;
@@ -62,6 +64,9 @@ h2 {
 #light-dark-button {
   background-color: var(--light-dark-btn-bg);
   background-image: var(--light-dark-btn-bg);
+  font-family: 'Rubik Doodle Triangles', system-ui;
+  font-size: 25px;
+  font-weight: 100;
 }
 
 #light-dark-button::after {
@@ -82,7 +87,9 @@ body.dark {
 #reset-button {
   margin-top: 50px;
   border-radius: 7px;
-  font-size: 1.5vmin;
+  font-size: 2vmin;
   padding: 8px 12px;
+  font-family: 'Rubik Doodle Triangles', system-ui;
+  font-weight: 100;
 }
 
