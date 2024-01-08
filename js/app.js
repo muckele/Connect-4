@@ -36,7 +36,7 @@ function checkDarkPref() {
 }
 
 function init() {
-  board = Array(42).fill(null) 
+  board = new Array(42).fill(null) 
   turn = 1
   winner = false
   tie = false
@@ -100,6 +100,7 @@ function findLowestEmptyRow(column) {
 }
 
 function checkForWinner(player) {
+  const winningCombos = getWinningCombos()
   for (let combo of winningCombos) {
     let count = 0
     for (let position of combo) {
@@ -120,6 +121,30 @@ function checkForTie() {
     tie = true
     render()
   }
+}
+
+function getWinningCombos() {
+  const combos = []
+  // Horizontal
+  for (let row = 0; row < 6; row++) {
+    for (let col = 0; col < 4; col++) {
+      combos.push([row * 7 + col, row * 7 + col + 1, row * 7 + col + 2, row * 7 + col + 3])
+    }
+  }
+  // Vertical
+  for (let col = 0; col < 7; col++) {
+    for (let row = 0; row < 3; row++) {
+      combos.push([row * 7 + col, (row + 1) * 7 + col, (row + 2) * 7 + col, (row + 3) * 7 + col])
+    }
+  }
+  // Diagonal
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 4; col++) {
+      combos.push([row * 7 + col, (row + 1) * 7 + col + 1, (row + 2) * 7 + col + 2, (row + 3) * 7 + col + 3])
+      combos.push([row * 7 + col + 3, (row + 1) * 7 + col + 2, (row + 2) * 7 + col + 1, (row + 3) * 7 + col])
+    }
+  }
+  return combos
 }
 
 
