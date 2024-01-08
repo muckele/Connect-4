@@ -4,9 +4,10 @@
   grid-template-rows: repeat(6, 110px);
   width: 800px;
   height: 675px;
-  margin: 0 auto;
+  margin: 20px auto 0;
   justify-content: center;
   background-color: navy;
+  padding: 30px;
 }
 
 #message {
@@ -25,8 +26,21 @@
   outline: 5px solid black;
 }
 
-.cell:hover {
+/* .cell.player-turn:hover {
   background-color: red;
+}
+.cell:not(.player-turn):hover {
+  background-color: yellow;
+} */
+
+.HoverClass1:hover {
+  color:red;
+  background-color: red;
+}
+
+.HoverClass2:hover {
+  color: yellow;
+  background-color: yellow;
 }
 
 body {
@@ -38,18 +52,17 @@ body {
   align-items: center;
   background-color: var(--body-bg);
   display: flex;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   flex-direction: column;
   margin: 0;
-  font-family: 'Comic Neue', cursive;;
+  font-family: 'Comic Neue', cursive;
 }
 
 h1 {
   background-color: var(--header-bg);
   font-family: var(--serif);
   font-size: 95px;
-  font-weight: 150;
+  font-weight: bold;
   margin: 0 0 12px 0;
   padding: 12px;
   text-align: center;
@@ -58,7 +71,7 @@ h1 {
 
 h2 {
   font-size: 30px;
-  color-scheme: white;
+  color: white;
 }
 
 #light-dark-button {
@@ -90,6 +103,6 @@ body.dark {
   font-size: 2vmin;
   padding: 8px 12px;
   font-family: 'Rubik Doodle Triangles', system-ui;
-  font-weight: 100;
+  font-weight: bolder;
 }
 
