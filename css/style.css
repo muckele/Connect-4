@@ -45,10 +45,9 @@ body {
   align-items: center;
   background-color: var(--body-bg);
   display: flex;
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   flex-direction: column;
   margin: 0;
-  font-family: 'Comic Neue', cursive;
+  font-family: 'Rubik Scribble', system-ui;
 }
 
 h1 {
@@ -95,7 +94,7 @@ body.dark {
   border-radius: 7px;
   font-size: 2vmin;
   padding: 8px 12px;
-  font-family: 'Rubik Doodle Triangles', system-ui;
+  font-family: 'Rubik Scribble', system-ui;;
   font-weight: bolder;
 }
 

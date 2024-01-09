@@ -151,34 +151,4 @@ function getWinningCombos() {
 
 
 
-// PseudoCode for Connect Four Unit One Project 
 
-// Initialize the game board:
-// Create a 6x7 grid (6 rows, 7 rows)
-// Set all grid cells to empty (e.g., null represents an empty cell)
-
-// Display the game board:
-// Iterate through each row and row
-// Display the content of each cell (e.g., "red" for player 1, "yellow" for player 2, and null for an empty cell)
-
-// Check for a winning condition:
-// Iterate through each row, row, and diagonal
-// Check if there are four consecutive discs of the same player
-// If yes, declare the player as the winner
-
-// Check for a tie:
-// If all cells on the board are filled and no player has won, declare a tie
-
-// Player move:
-// Repeat until a winning condition or tie occurs:
-// Get the current player's input for the row to drop a disc
-// Check if the selected row is not full
-// If yes, drop the player's disc in the lowest empty cell in that row
-// If no, ask the player to choose another row
-
-// Switch player:
-// Toggle between players after each move
-
-// Display the final result:
-// Display the final state of the game board
-// Display the winner or declare a tie

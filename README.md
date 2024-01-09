@@ -34,9 +34,11 @@ Connect Four, a game created by Howard Wexler, was first sold under the Connect 
 - [ ] Sound effects
 - [x] Hover Mode
 - [ ] Seinfeld Themed Game
-- [ ] Dynamically Code the winning combos function
-- [ ] Change hover CSS to switch between yellow and red depending on P1 or P2 turn
+- [x] Dynamically Code the winning combos function
+- [x] Change hover CSS to switch between yellow and red depending on P1 or P2 turn
 - [ ] CPU Mode
 
 ### **[Planning Materials](https://docs.google.com/document/d/1085Lcw7JO2rOG9yuiK6o5X26hjdYf1IjDxmnsK5gLlU/edit?usp=sharing)**
+
+
 
