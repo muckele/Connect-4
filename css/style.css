@@ -26,13 +26,6 @@
   outline: 5px solid black;
 }
 
-/* .cell.player-turn:hover {
-  background-color: red;
-}
-.cell:not(.player-turn):hover {
-  background-color: yellow;
-} */
-
 .HoverClass1:hover {
   color:red;
   background-color: red;
