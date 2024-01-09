@@ -69,9 +69,9 @@ h2 {
 #light-dark-button {
   background-color: var(--light-dark-btn-bg);
   background-image: var(--light-dark-btn-bg);
-  font-family: 'Rubik Doodle Triangles', system-ui;
+  font-family: 'Rubik Scribble', system-ui;
   font-size: 25px;
-  font-weight: 100;
+  font-weight: bolder;
 }
 
 #light-dark-button::after {
@@ -94,7 +94,7 @@ body.dark {
   border-radius: 7px;
   font-size: 2vmin;
   padding: 8px 12px;
-  font-family: 'Rubik Scribble', system-ui;;
+  font-family: 'Rubik Scribble', system-ui;
   font-weight: bolder;
 }
 
