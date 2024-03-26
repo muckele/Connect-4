@@ -1,6 +1,6 @@
 # **Connect-4**
 
-![alt text](/assets/images/Screenshot.png)
+![alt text](./assets/images/Screenshot%20.png)
 
 # **[Play Now!](https://matts-connect-four-game.netlify.app/)**
 
