@@ -98,3 +98,22 @@ body.dark {
   font-weight: bolder;
 }
 
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  color: #ccc;
+}
