@@ -53,12 +53,18 @@ body {
 h1 {
   background-color: var(--header-bg);
   font-family: var(--serif);
-  font-size: 95px;
+  font-size: 85px;
   font-weight: bold;
   margin: 0 0 12px 0;
   padding: 12px;
   text-align: center;
   width: 100%;
+}
+
+img {
+  height: 2em;
+  background-size: cover;
+  background-position: center;
 }
 
 h2 {
